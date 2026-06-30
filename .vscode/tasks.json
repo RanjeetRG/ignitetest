@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start CareFlow (All Services)",
+      "dependsOn": [
+        "Start Backend Server",
+        "Start Frontend Server"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Backend Server",
+      "type": "shell",
+      "command": ".\\venv\\Scripts\\python.exe app.py",
+      "options": {
+        "cwd": "${workspaceFolder}/careflow_backend"
+      },
+      "presentation": {
+        "group": "careflow",
+        "reveal": "always",
+        "panel": "new"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Frontend Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/careflow_frontend"
+      },
+      "presentation": {
+        "group": "careflow",
+        "reveal": "always",
+        "panel": "new"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
